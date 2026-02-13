@@ -1,0 +1,34 @@
+class Solution:
+    def myPow(self, x: float, n: int) -> float:
+        
+        # If exponent is 0
+        if n == 0:
+            return 1.0
+        
+        # Handle negative exponent
+        if n < 0:
+            x = 1 / x
+            n = -n
+        
+        result = 1.0
+        
+        # Binary exponentiation
+        while n > 0:
+            # If n is odd, multiply result with x
+            if n % 2 == 1:
+                result *= x
+            
+            # Square x
+            x *= x
+            
+            # Divide n by 2
+            n //= 2
+        
+        return result
+
+
+# Example usage
+s = Solution()
+print(s.myPow(2.00000, 10))   # Output: 1024.0
+print(s.myPow(2.10000, 3))    # Output: 9.261
+print(s.myPow(2.00000, -2))   # Output: 0.25
