@@ -1,7 +1,6 @@
 class Solution:
     def myPow(self, x: float, n: int) -> float:
 
-        # Handle negative power
         if n < 0:
             x = 1 / x
             n = -n
@@ -9,14 +8,17 @@ class Solution:
         result = 1.0
 
         while n > 0:
-            # If n is odd
             if n % 2 == 1:
                 result *= x
 
-            # Square the base
             x *= x
-
-            # Divide exponent by 2
             n //= 2
 
         return result
+
+
+obj = Solution()
+
+print(obj.myPow(2.0, 10))
+print(obj.myPow(2.1, 3))
+print(obj.myPow(2.0, -2))
